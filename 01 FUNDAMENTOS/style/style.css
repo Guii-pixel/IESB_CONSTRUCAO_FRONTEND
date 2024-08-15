@@ -1,0 +1,85 @@
+*{
+    margin: 1px;
+}
+
+
+body {
+    padding-bottom: 500px;
+}
+
+h2 {
+    font-size: 22px;
+    color: blue;
+}
+
+h3 {
+    font-size: 55px;
+    color: red;
+}
+
+.cor-laranja {
+    color: rgb(192, 136, 31);
+}
+
+.meu-titulo{
+    color: aqua;
+}
+
+#ultimo-titulo {
+    color: black;
+}
+
+.fundo-azul {
+    background-color: blue;
+}
+
+.texto-pequeno,
+#meu-paragrafo {
+    font-size: 35px;
+}
+
+#minha-div {
+background-image: url(../assets/golden.jpeg);
+padding: 250px;
+}
+
+#altura-largura {
+    width: 200px; ;
+    height: 200px;
+    background-color: gray;
+}
+
+#div-espacamento {
+    background-color: aqua;
+    padding: 10px 20px 10px 20px;
+}
+
+#div-margin {
+    background-color: aqua;
+    margin: 10px 20px 10px 20px;
+}
+
+#div-border {
+    background-color: blueviolet;
+    width:200px ;
+    height:200px ;
+    margin-top: 100px;
+    border:12px solid black;
+}
+
+#div-arredondamento {
+    background-color: red;
+    width:200px ;
+    height:200px ;
+    margin-top: 100px;
+    border:12px solid violet;
+    border-radius: 15px;
+}
+
+#alinhamento-texto {
+    background-color: maroon;
+    
+    text-align: center ;
+    text-decoration: ; 
+    color: blue;
+}

@@ -6,13 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML E CSS</title>
 <!--CSS NO HEAD-->
-    <style>
+ <!--style-->
         body {
             padding-bottom: 500px;
-        }
-    </style>
+        } 
+<!--style-->     
+
+    <!--Integração com css-->
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
+    <nav>
+        <ul>
+           <li <a href="./formulario.html">Formulário</li> 
+           <li <a href="./tabela.html">Tabela</a>></li> 
+           <li></li> 
+        </ul>
+    </nav>
 
  <!-- comentario em html -->
 
@@ -52,15 +62,172 @@ target="_blank">Google em nova aba</a>
 <hr>
 
 <!--formulario-->
-<form>
-    <label for="">Nome</label>
-    <imput type="text">
+<form >
+    <h2>formulario</h2>
+    <label for="nome">NOME</label>
+   <input type="text" placeholder="INSIRA SEU NOME COMPLETO" name="name">
+   
+   <label for="cpf">CPF</label>
+   <input type="text" placeholder="INSIRA SEU CPF" name="cpf">
+   
+   <label for="email">email</label>
+   <input type="text" placeholder="seunome@gamil.com" name="email">
+   
+   <label for="telefone"></label>
+   <input type="number" placeholder="61992732205" name="telefone">
+   
+   <button type="submit">ENVIAR</button>
+   <button type="submit">LIMPAR</button>
+   
+   </form>
 
-    <label for="">CPF</label>
-    <imput type="text">
 
 
-</form>
+<hr>
+<!--Listas--> 
+<!--lista nao ordernada-->  
+<ul>
+    <li>Maçã</li>
+    <li>Uva</li>
+    <li>Laranja</li>
+    <li>Banana</li>
+</ul>
+<!--lista ordenada-->
+<ol>
+    <li>Estudar html</li>
+    <li>Estudar css</li>
+    <li>Estudar JS</li>
+</ol>
+<hr>
+
+
+
+<!--Tabelas-->
+<table border="10px">
+    <!--Colunas-->
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>ID</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <!--Corpo da tabela-->
+    <tbody>
+        <tr>
+            <th>Romão</th>
+            <th>1</th>
+            <th>romao@gmail.com</th>
+        </tr>
+        <tr>
+            <th>Daneiel</th>
+            <th>2</th>
+            <th>daniel@gamil.com</th>
+        </tr>
+    </tbody>
+</table>
+<hr>
+
+
+<!--div e spam-->
+<div>
+    <h3>Produto X</h3>
+    <p>R$ 500,00</p>
+    <a href="comprar">Comprar</a>
+</div>
+
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and <span style="color: red; background-color: gray;">scrambled</span> it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+
+<!--css inline-->
+<h3 style="font-size: 25px; color: blue ;">Título qualquer</h3>
+
+<hr>
+<!--Elementos Bloco e Inline-->
+<!--Bloco - ocupa um bloco -->
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+</p>
+<p> ut also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu  
+</p>
+
+<!--Ocupa apenas um espaço-->
+<span>Algum texto</span>
+<span>Outro texto</span>
+
+<hr>
+
+<!--Tags HTML's-->
+<nav></nav>
+<header></header>
+<main></main>
+<aside></aside>
+<section></section>
+<footer></footer>
+
+<hr>
+<!--Integração com o css-->
+<h3 class="meu_titulo">Título</h3>
+
+<h3 class="meu-titulo">Meu outro titulo</h3>
+
+<h3 id="ultimo-titulo">new titulo </h3>
+
+<p class="cor-laranja">fisdjfgisjgifiogjiofjgifjgidf</p>
+
+<a href="#" class="cor-laranja">Link qualquer</a>
+
+
+<!--Background - fundo-->
+<p class="fundo-azul">algum texto quakquer </p>
+
+<spam class="fundo-azul">algum texto</spam>
+<hr>
+
+<!--2 elemenyos e 1 regra-->
+<p class="texto-pequeno">Algum texto</p>
+<p id="meu-paragrafo">Outro texto</p>
+
+<!--Background - imagem-->
+
+<div id="minha-div">
+    <h3>Testando imagem de background</h3>
+</div>
+<hr>
+<!--Box Movel-->
+
+<!--Altura e largura-->
+<div id="altura-largura">
+    <p>Testando altura</p>
+</div>
+
+<!--padding (espaçamento)-->
+<div id="div-espacamento">
+    <p>Testando espaçamento</p>
+</div>
+
+<!--Margin (margem)-->
+<div id="div-margin">
+    <p>Testando Margem </p>
+</div>
+
+<!--Border (borda)-->
+<div id="div-border">
+    <p>Testando borda </p>
+</div>
+
+<!--Arredondamento da borda-->
+<div id="div-arredondamento">
+    <p>Testando Arredondamento </p>
+</div>
+
+<!--Alinhamento de texto-->
+<div class="alinhamento-texto">
+    <p>teste de alinhamento-texto </p>
+</div>
+
+
+
+
 
 
 
