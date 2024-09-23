@@ -1,3 +1,4 @@
+import Pagina from "../componentes/Pagina";
 import Cabecalho from "./cabeçalho";
 import Familia from "./familia";
 import Filho from "./Filho";
@@ -10,7 +11,7 @@ import NumeroMaior from "./numeromaior";
 export default function Fundamentos() {
 
     return (
-        <>
+        <Pagina titulo="Fundamentos">
             {/* Comentários no JSX */}
 
             <Cabecalho titulo="Fundamentos" descricao="Página de fundamentos de React/Next" />
@@ -59,13 +60,12 @@ export default function Fundamentos() {
             
 
 
-        </>
+        </Pagina>
     )
 
 
 
 }
-
 
 
 

@@ -1,6 +1,6 @@
 import style from './fundamentos.module.css'
 
-export default function Cabecalho(props) {
+export default function cabeçalho(props) {
 
     const { titulo, descricao } = props
 
