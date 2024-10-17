@@ -3,12 +3,24 @@
 import Pagina from '@/components/Pagina'
 import { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+<<<<<<< HEAD
+=======
+import { FaCheck, FaTrashAlt } from "react-icons/fa";
+>>>>>>> 402162f4f692e2540c0e742229a839df7b0c5489
 
+export default function FormulariosNomePage() {
+
+<<<<<<< HEAD
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+
+=======
 export default function FormulariosNomePage() {
 
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
 
+>>>>>>> 402162f4f692e2540c0e742229a839df7b0c5489
   function handleNome(evento) {
     setNome(evento.target.value)
   }
@@ -63,8 +75,13 @@ export default function FormulariosNomePage() {
           <Form.Text>Informe o seu e-mail</Form.Text>
         </Form.Group>
 
+<<<<<<< HEAD
         <Button type='submit'>Enviar</Button>
         <Button onClick={reset}>Limpar</Button>
+=======
+        <Button type='submit' className='me-2'><FaCheck /> Enviar</Button>
+        <Button onClick={reset}><FaTrashAlt /> Limpar</Button>
+>>>>>>> 402162f4f692e2540c0e742229a839df7b0c5489
 
       </Form>
 
