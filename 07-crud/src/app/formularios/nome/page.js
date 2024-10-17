@@ -1,47 +1,72 @@
-import React from 'react'
+'use client'
+
 import Pagina from '@/components/Pagina'
+import { useState } from 'react'
+import { Button, Form } from 'react-bootstrap'
 
+export default function FormulariosNomePage() {
 
-export default function page() {
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
 
-    function HandNomes
+  function handleNome(evento) {
+    setNome(evento.target.value)
+  }
+
+  function handleEmail(evento) {
+    setEmail(evento.target.value)
+  }
+
+  function reset(){
+    console.log("CHAMOU O RESET")
+    setNome('')
+    setEmail('')
+  }
+
+  function submit(evento) {
+    evento.preventDefault()
+    console.log(nome, email)
+  }
 
   return (
     <Pagina titulo="Formulário Nome">
 
-        <div>
-            <h2>Seu nome</h2>
-            <h2>Seu e-mail</h2>
-        </div>
-        
+      <div>
+        <h2>Seu nome é: {nome}</h2>
+        <h2>Seu email é: {email}</h2>
+      </div>
 
-        {/*Form do React Bootstrap*/}
-        <Form>
-        <Form.Group>
-               {/*Form do Nome*/}
-            <Form.Label>Nome</Form.Label>
-            <Form.Control 
-            type="text" 
-            name="nome"
-            anchanges= {}
-            />
-            <Form.Text>Informe seu nome</Form.Text>
+      {/* Form do React Boostrap */}
+      <Form onSubmit={submit}>
+        {/* Input Nome */}
+        <Form.Group className='mb-2'>
+          <Form.Label>Nome:</Form.Label>
+          <Form.Control
+            type='text'
+            name='nome'
+            value={nome}
+            onChange={handleNome}
+            placeholder='Informe o seu nome'
+          />
+          <Form.Text>Informe o seu nome</Form.Text>
         </Form.Group>
 
-         {/*Form de email*/}
-         <Form.Group>
-            <Form.Label>E-mail</Form.Label>
-            <Form.Control type="text" name="nome" />
-            <Form.Text>Informe seu e-mail</Form.Text>
+        {/* Input email */}
+        <Form.Group className='mb-2'>
+          <Form.Label>Email:</Form.Label>
+          <Form.Control
+            type='email'
+            name='email'
+            value={email}
+            onChange={handleEmail}
+          />
+          <Form.Text>Informe o seu e-mail</Form.Text>
         </Form.Group>
 
-        <Button>Enviar</Button>
+        <Button type='submit'>Enviar</Button>
+        <Button onClick={reset}>Limpar</Button>
 
-
-
-
-        </Form>
-        
+      </Form>
 
 
     </Pagina>
