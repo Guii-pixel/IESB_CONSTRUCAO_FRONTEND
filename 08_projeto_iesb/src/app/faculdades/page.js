@@ -33,6 +33,7 @@ export default function FaculdadesPage() {
             <th>País</th>
             <th>Estado</th>
             <th>Cidade</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
