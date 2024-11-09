@@ -13,12 +13,8 @@ export default function Pagina({ titulo, children }) {
           <Navbar.Brand href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
             <NavDropdown title="Formulários" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/formularios/nome">Nome</NavDropdown.Item>
-<<<<<<< HEAD
-=======
-              <NavDropdown.Item href="/formularios/imc">Calculadora de IMC</NavDropdown.Item>
-              <NavDropdown.Item href="/formularios/imcformik">Calculadora de IMC - Formik</NavDropdown.Item>
->>>>>>> 402162f4f692e2540c0e742229a839df7b0c5489
+              <NavDropdown.Item href="/formularios/cadastros">Imóveis</NavDropdown.Item>
+              <NavDropdown.Item href="/formularios/cadastros/lista">Lista de Imóveis</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Container>
@@ -35,12 +31,4 @@ export default function Pagina({ titulo, children }) {
       </Container>
     </>
   )
-<<<<<<< HEAD
 }
-
-    
-
-
-=======
-}
->>>>>>> 402162f4f692e2540c0e742229a839df7b0c5489
