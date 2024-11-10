@@ -20,11 +20,11 @@ export default function ArmamentoPage() {
   }, [])
 
   // Função para exclusão do item
-  function excluir(armamento) {
+  function excluir(armamentoParaExcluir) {
     // Confirma com o usuário a exclusão
-    if (window.confirm(`Deseja realmente excluir a armamento ${armamento.nome}?`)) {
-      // filtra a lista antiga removando a faculdade recebida
-      const novaLista = armamento.filter(item => item.id !== armamento.id)
+    if (window.confirm(`Deseja realmente excluir a armamento ${armamentoParaExcluir.nome}?`)) {
+      // filtra a lista antiga removando o armamento recebido
+      const novaLista = armamento.filter(item => item.id !== armamentoParaExcluir.id)
       // grava no localStorage a nova lista
       localStorage.setItem('armamento', JSON.stringify(novaLista))
       // grava a nova lista no estado para renderizar na tela
@@ -59,10 +59,13 @@ export default function ArmamentoPage() {
             return (
               <tr>
                 <td>{armamento.nome}</td>
-                <td>{armamento.endereco}</td>
-                <td>{armamento.pais}</td>
-                <td>{armamento.estado}</td>
-                <td>{armamento.cidade}</td>
+                <td>{armamento.cor}</td>
+                <td>{armamento.classificacaoQuantoAoPorte}</td>
+                <td>{armamento.classificacaoQuantoALegalidade}</td>
+                <td>{armamento.almaDoCano}</td>
+                <td>{armamento.mira}</td>
+                <td>{armamento.gatilho}</td>
+                <td>{armamento.carregador}</td>
                 <td className='text-center'>
                   {/* Botões das ações */}
                   <Button className='me-2' href={`/armamento/form?id=${armamento.id}`}><FaPen /></Button>

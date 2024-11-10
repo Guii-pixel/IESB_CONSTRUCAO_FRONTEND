@@ -8,7 +8,7 @@ export default function HomePage() {
 
   const armamento = JSON.parse(localStorage.getItem("armamento")) || []
   const munição = JSON.parse(localStorage.getItem("munição")) || []
-  const acessórios = JSON.parse(localStorage.getItem("acessórios")) || []
+  const acessórios = JSON.parse(localStorage.getItem("acessório")) || []
   const cliente = JSON.parse(localStorage.getItem("cliente")) || []
   const fornecedor = JSON.parse(localStorage.getItem("fornecedor")) || []
 
@@ -24,9 +24,9 @@ export default function HomePage() {
       link: "/municao"
     },
     {
-      nome: "Acessórios",
+      nome: "Acessório",
       imagem: "https://i.pinimg.com/564x/1b/43/11/1b43111b510d9cd97debd25a11c50fc6.jpg", quantidade: acessórios.length,
-      link: "/acessorios"
+      link: "/acessorio"
     },
     {
       nome: "Clientes",

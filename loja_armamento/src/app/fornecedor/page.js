@@ -13,18 +13,18 @@ export default function FornecedorPage() {
   // Faz alguma coisa quando o usuário acessa a tela
   useEffect(() => {
     // Busca a lista do localStorage, se não existir, inicia uma vazia
-    const fornecedorLocalStorage = JSON.parse(localStorage.getItem("fornecedores")) || []
+    const fornecedorLocalStorage = JSON.parse(localStorage.getItem("fornecedor")) || []
     // guarda a lista no estado
     setFornecedores(fornecedorLocalStorage)
     console.log(fornecedorLocalStorage)
   }, [])
 
   // Função para exclusão do item
-  function excluir(fornecedor) {
+  function excluir(fornecedorParaExcluir) {
     // Confirma com o usuário a exclusão
-    if (window.confirm(`Deseja realmente excluir o fornecedor ${fornecedor.nome}?`)) {
-      // filtra a lista antiga removando o professor recebido
-      const novaLista = fornecedor.filter(item => item.id !== fornecedor.id)
+    if (window.confirm(`Deseja realmente excluir o fornecedor ${fornecedorParaExcluir.nome}?`)) {
+      // filtra a lista antiga removando o fornecedor recebido
+      const novaLista = fornecedor.filter(item => item.id !== fornecedorParaExcluir.id)
       // grava no localStorage a nova lista
       localStorage.setItem('fornecedor', JSON.stringify(novaLista))
       // grava a nova lista no estado para renderizar na tela
@@ -57,7 +57,7 @@ export default function FornecedorPage() {
         <tbody>
           {fornecedor.map(fornecedor => {
             return (
-              <tr>
+              <tr key={fornecedor.id}>
                 <td>{fornecedor.nome}</td>
                 <td>{fornecedor.sobrenome}</td>
                 <td>{fornecedor.cpf}</td>

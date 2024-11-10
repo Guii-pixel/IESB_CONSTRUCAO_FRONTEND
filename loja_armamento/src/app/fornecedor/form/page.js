@@ -12,45 +12,45 @@ export default function FornecedorFormPage(props) {
 
   const router = useRouter()
 
-  const fornecedores = JSON.parse(localStorage.getItem('fornecedor')) || []
+  const fornecedor = JSON.parse(localStorage.getItem('fornecedor')) || []
 
   const id = props.searchParams.id
-  const fornecedorEditado = fornecedores.find(item => item.id == id)
+  const fornecedorEditado = fornecedor.find(item => item.id == id)
 
   function salvar(dados) {
     if (fornecedorEditado) {
       Object.assign(fornecedorEditado, dados)
-      localStorage.setItem('fornecedores', JSON.stringify(fornecedores))
+      localStorage.setItem('fornecedor', JSON.stringify(fornecedor))
     } else {
       dados.id = v4()
-      fornecedores.push(dados)
-      localStorage.setItem('fornecedores', JSON.stringify(fornecedores))
+      fornecedor.push(dados)
+      localStorage.setItem('fornecedor', JSON.stringify(fornecedor))
     }
 
     alert("Fornecedor salvo com sucesso!")
-    router.push("/Forncedor")
+    router.push("/fornecedor")
   }
 
   const initialValues = {
-    nomeCompleto: '',
+    nome: '',
+    sobrenome: '',
     cpf: '',
-    endereco: '',
-    telefone: '',
+    numero: '',
     email: '',
-    dataNascimento: '',
-    status: '',
-    observacoes: ''
+    sexo: '',
+    endereco: '',
+    status: ''
   }
 
   const validationSchema = Yup.object().shape({
-    nomeCompleto: Yup.string().required("Campo obrigatório"),
+    nome: Yup.string().required("Campo obrigatório"),
+    sobrenome: Yup.string().required("Campo obrigatório"),
     cpf: Yup.string().required("Campo obrigatório"),
-    endereco: Yup.string().required("Campo obrigatório"),
-    telefone: Yup.string().required("Campo obrigatório"),
+    numero: Yup.string().required("Campo obrigatório"),
     email: Yup.string().email("Email inválido").required("Campo obrigatório"),
-    dataNascimento: Yup.date().required("Campo obrigatório"),
-    status: Yup.string().required("Campo obrigatório"),
-    observacoes: Yup.string()
+    sexo: Yup.string().required("Campo obrigatório"),
+    endereco: Yup.string().required("Campo obrigatório"),
+    status: Yup.string().required("Campo obrigatório")
   })
 
   return (
@@ -68,17 +68,33 @@ export default function FornecedorFormPage(props) {
                 <Form.Group as={Col}>
                   <Form.Label>Nome:</Form.Label>
                   <Form.Control
-                    name='nomeCompleto'
+                    name='nome'
                     type='text'
-                    value={values.nomeCompleto}
+                    value={values.nome}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isValid={touched.nomeCompleto && !errors.nomeCompleto}
-                    isInvalid={touched.nomeCompleto && errors.nomeCompleto}
+                    isValid={touched.nome && !errors.nome}
+                    isInvalid={touched.nome && errors.nome}
                   />
-                  <Form.Control.Feedback type='invalid'>{errors.nomeCompleto}</Form.Control.Feedback>
+                  <Form.Control.Feedback type='invalid'>{errors.nome}</Form.Control.Feedback>
                 </Form.Group>
 
+                <Form.Group as={Col}>
+                  <Form.Label>Sobrenome:</Form.Label>
+                  <Form.Control
+                    name='sobrenome'
+                    type='text'
+                    value={values.sobrenome}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    isValid={touched.sobrenome && !errors.sobrenome}
+                    isInvalid={touched.sobrenome && errors.sobrenome}
+                  />
+                  <Form.Control.Feedback type='invalid'>{errors.sobrenome}</Form.Control.Feedback>
+                </Form.Group>
+              </Row>
+
+              <Row className='mb-2'>
                 <Form.Group as={Col}>
                   <Form.Label>CPF:</Form.Label>
                   <Form.Control
@@ -92,35 +108,19 @@ export default function FornecedorFormPage(props) {
                   />
                   <Form.Control.Feedback type='invalid'>{errors.cpf}</Form.Control.Feedback>
                 </Form.Group>
-              </Row>
-
-              <Row className='mb-2'>
-                <Form.Group as={Col}>
-                  <Form.Label>Endereço:</Form.Label>
-                  <Form.Control
-                    name='endereco'
-                    type='text'
-                    value={values.endereco}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    isValid={touched.endereco && !errors.endereco}
-                    isInvalid={touched.endereco && errors.endereco}
-                  />
-                  <Form.Control.Feedback type='invalid'>{errors.endereco}</Form.Control.Feedback>
-                </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Telefone:</Form.Label>
+                  <Form.Label>Número:</Form.Label>
                   <Form.Control
-                    name='telefone'
+                    name='numero'
                     type='text'
-                    value={values.telefone}
+                    value={values.numero}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isValid={touched.telefone && !errors.telefone}
-                    isInvalid={touched.telefone && errors.telefone}
+                    isValid={touched.numero && !errors.numero}
+                    isInvalid={touched.numero && errors.numero}
                   />
-                  <Form.Control.Feedback type='invalid'>{errors.telefone}</Form.Control.Feedback>
+                  <Form.Control.Feedback type='invalid'>{errors.numero}</Form.Control.Feedback>
                 </Form.Group>
               </Row>
 
@@ -140,50 +140,55 @@ export default function FornecedorFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Data de Nascimento:</Form.Label>
-                  <Form.Control
-                    name='dataNascimento'
-                    type='date'
-                    value={values.dataNascimento}
+                  <Form.Label>Sexo:</Form.Label>
+                  <Form.Select
+                    name='sexo'
+                    value={values.sexo}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isValid={touched.dataNascimento && !errors.dataNascimento}
-                    isInvalid={touched.dataNascimento && errors.dataNascimento}
-                  />
-                  <Form.Control.Feedback type='invalid'>{errors.dataNascimento}</Form.Control.Feedback>
+                    isValid={touched.sexo && !errors.sexo}
+                    isInvalid={touched.sexo && errors.sexo}
+                  >
+                  <option value=''>Selecione</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro</option>
+                  </Form.Select>
+                  <Form.Control.Feedback type='invalid'>{errors.sexo}</Form.Control.Feedback>
                 </Form.Group>
               </Row>
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Status:</Form.Label>
-                  <Form.Select
-                    name='status'
-                    value={values.status}
+                  <Form.Label>Endereço:</Form.Label>
+                  <Form.Control
+                    name='endereco'
+                    type='string'
+                    value={values.endereco}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isValid={touched.status && !errors.status}
-                    isInvalid={touched.status && errors.status}
+                    isValid={touched.endereco && !errors.endereco}
+                    isInvalid={touched.endereco && errors.endereco}
                   >
-                    <option value=''>Selecione</option>
-                    <option value="Ativo">Ativo</option>
-                    <option value="Inativo">Inativo</option>
-                  </Form.Select>
-                  <Form.Control.Feedback type='invalid'>{errors.status}</Form.Control.Feedback>
+                  </Form.Control>
+                  <Form.Control.Feedback type='invalid'>{errors.endereco}</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Observações:</Form.Label>
-                  <Form.Control
-                    name='observacoes'
-                    type='text'
-                    value={values.observacoes}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    isValid={touched.observacoes && !errors.observacoes}
-                    isInvalid={touched.observacoes && errors.observacoes}
-                  />
-                  <Form.Control.Feedback type='invalid'>{errors.observacoes}</Form.Control.Feedback>
+                  <Form.Label>Status:</Form.Label>
+                  <Form.Select
+                   name='status'
+                   value={values.status}
+                   onChange={handleChange}
+                   onBlur={handleBlur}
+                   isValid={touched.status && !errors.status}
+                   isInvalid={touched.status && errors.status}
+                 >
+                   <option value=''>Selecione</option>
+                   <option value="Ativo">Ativo</option>
+                   <option value="Inativo">Inativo</option>
+                 </Form.Select>
+                  <Form.Control.Feedback type='invalid'>{errors.status}</Form.Control.Feedback>
                 </Form.Group>
               </Row>
 

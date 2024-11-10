@@ -12,30 +12,30 @@ export default function ClienteFormPage(props) {
 
   const router = useRouter()
 
-  const clientes = JSON.parse(localStorage.getItem('clientes')) || []
+  const cliente = JSON.parse(localStorage.getItem('cliente')) || []
 
   const id = props.searchParams.id
-  const clienteEditado = clientes.find(item => item.id == id)
+  const clienteEditado = cliente.find(item => item.id == id)
 
   // função para salvar os dados do form
   function salvar(dados) {
     // Se professorEditado existe, mudar os dados e gravar no localStorage
-    if (clientesEditadoEditado) {
-      Object.assign(clientesEditadoEditado, dados)
+    if (clienteEditado) {
+      Object.assign(clienteEditado, dados)
       // Substitui a lista antiga pela nova no localStorage
-      localStorage.setItem('clientes', JSON.stringify(clientes))
+      localStorage.setItem('cliente', JSON.stringify(cliente))
     } else {
       // se clienteEditado não existe, é criação de uma nova
       // gerar um ID (Identificador unico)
       dados.id = v4()
       // Adiciona a nova faculdade na lista de faculdades
-      clientes.push(dados)
+      cliente.push(dados)
       // Substitui a lista antiga pela nova no localStorage
-      localStorage.setItem('clientes', JSON.stringify(clientes))
+      localStorage.setItem('cliente', JSON.stringify(cliente))
     }
 
     alert("Cliente criado com sucesso!")
-    router.push("/clietes")
+    router.push("/cliente")
   }
 
   const initialValues = {
@@ -57,7 +57,7 @@ export default function ClienteFormPage(props) {
     email: Yup.string().email("Email inválido").required("Campo obrigatório"),
     dataNascimento: Yup.date().required("Campo obrigatório"),
     status: Yup.string().required("Campo obrigatório"),
-    observacoes: Yup.string()
+    observacoes: Yup.string().required("Campo obrigatório")
   })
 
   return (

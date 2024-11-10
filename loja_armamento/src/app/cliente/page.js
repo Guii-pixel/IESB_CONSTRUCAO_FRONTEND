@@ -20,13 +20,13 @@ export default function ClientePage() {
   }, [])
 
   // Função para exclusão do item
-  function excluir(cliente) {
+  function excluir(clienteParaExcluir) {
     // Confirma com o usuário a exclusão
-    if (window.confirm(`Deseja realmente excluir o cliente ${cliente.nome}?`)) {
+    if (window.confirm(`Deseja realmente excluir o cliente ${clienteParaExcluir.nome}?`)) {
       // filtra a lista antiga removando o professor recebido
-      const novaLista = cliente.filter()(item => item.id !== cliente.id)
+      const novaLista = cliente.filter(item => item.id !== clienteParaExcluir.id)
       // grava no localStorage a nova lista
-      localStorage.setItem('clientes', JSON.stringify(novaLista))
+      localStorage.setItem('clientes', JSON.stringify(novaLista));
       // grava a nova lista no estado para renderizar na tela
       setClientes(novaLista)
       alert("Cliente excluído com sucesso!")
@@ -44,7 +44,7 @@ export default function ClientePage() {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Nome</th>
+            <th>Nome Completo</th>
             <th>Endereço</th>
             <th>Email</th>
             <th>Status</th>

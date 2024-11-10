@@ -13,22 +13,22 @@ export default function MunicaoPage() {
   // Faz alguma coisa quando o usuário acessa a tela
   useEffect(() => {
     // Busca a lista do localStorage, se não existir, inicia uma vazia
-    const municaoLocalStorage = JSON.parse(localStorage.getItem("munição")) || []
+    const municaoLocalStorage = JSON.parse(localStorage.getItem("municao")) || []
     // guarda a lista no estado faculdades
     setMunicao(municaoLocalStorage)
     console.log(municaoLocalStorage)
   }, [])
 
   // Função para exclusão do item
-  function excluir(municao) {
+  function excluir(municaoParaExcluir) {
     // Confirma com o usuário a exclusão
-    if (window.confirm(`Deseja realmente excluir a municao ${municao.nome}?`)) {
+    if (window.confirm(`Deseja realmente excluir a municao ${municaoParaExcluir.nome}?`)) {
       // filtra a lista antiga removando a faculdade recebida
-      const novaLista = municao.filter(item => item.id !== municao.id)
+      const novaLista = municao.filter(item => item.id !== municaoParaExcluir.id)
       // grava no localStorage a nova lista
       localStorage.setItem('municao', JSON.stringify(novaLista))
       // grava a nova lista no estado para renderizar na tela
-      setArmamento(novaLista)
+      setMunicao(novaLista)
       alert("Munição excluída com sucesso!")
     }
   }
@@ -44,25 +44,28 @@ export default function MunicaoPage() {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Cor</th>
-            <th>Classificação quanto ao porte</th>
-            <th>Classificação quanto à legalidade</th>
-            <th>Alma do cano</th>
-            <th>Mira</th>
-            <th>Gatilho</th>
-            <th>Carregador</th>
+            <th>Calibre</th>
+            <th>Projétil</th>
+            <th>Bala</th>
+            <th>Estojo</th>
+            <th>Propelente</th>
+            <th>Espoleta</th>
+            <th>Pólvora</th>
+            <th>Detonador</th>
           </tr>
         </thead>
         <tbody>
           {municao.map(municao => {
             return (
               <tr>
-                <td>{municao.nome}</td>
-                <td>{municao.endereco}</td>
-                <td>{municao.pais}</td>
-                <td>{municao.estado}</td>
-                <td>{municao.cidade}</td>
+                <td>{municao.calibre}</td>
+                <td>{municao.projetil}</td>
+                <td>{municao.bala}</td>
+                <td>{municao.estojo}</td>
+                <td>{municao.propelente}</td>
+                <td>{municao.espoleta}</td>
+                <td>{municao.polvora}</td>
+                <td>{municao.detonador}</td>
                 <td className='text-center'>
                   {/* Botões das ações */}
                   <Button className='me-2' href={`/municao/form?id=${municao.id}`}><FaPen /></Button>
