@@ -7,6 +7,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import { FaArrowLeft, FaCheck } from "react-icons/fa"
 import { v4 } from 'uuid'
 import * as Yup from 'yup'
+import MaskedInput from 'react-text-mask'
 
 export default function MunicaoFormPage(props) {
 
@@ -73,12 +74,14 @@ export default function MunicaoFormPage(props) {
             <Form onSubmit={handleSubmit}>
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Calibre:</Form.Label>
-                  <Form.Control
+                  <Form.Label className="form-label-alma-do-cano">Calibre:</Form.Label>
+                  <MaskedInput
+                    mask={['.', /\d/, /\d/]}
                     name='calibre'
                     type='text'
                     value={values.calibre}
                     onChange={handleChange}
+                    className='form-control'
                     onBlur={handleBlur}
                     isValid={touched.calibre && !errors.calibre}
                     isInvalid={touched.calibre && errors.calibre}
@@ -87,7 +90,7 @@ export default function MunicaoFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Projétil:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Projétil:</Form.Label>
                   <Form.Control
                     name='projetil'
                     type='text'
@@ -103,7 +106,7 @@ export default function MunicaoFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Bala:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Bala:</Form.Label>
                   <Form.Control
                     name='bala'
                     type='text'
@@ -117,7 +120,7 @@ export default function MunicaoFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Estojo:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Estojo:</Form.Label>
                   <Form.Control
                     name='estojo'
                     type='text'
@@ -133,7 +136,7 @@ export default function MunicaoFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Propelente:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Propelente:</Form.Label>
                   <Form.Control
                     name='propelente'
                     type='text'
@@ -147,7 +150,7 @@ export default function MunicaoFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Espoleta:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Espoleta:</Form.Label>
                   <Form.Control
                     name='espoleta'
                     type='text'
@@ -163,7 +166,7 @@ export default function MunicaoFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Pólvora:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Pólvora:</Form.Label>
                   <Form.Control
                     name='polvora'
                     type='text'
@@ -178,7 +181,7 @@ export default function MunicaoFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Detonador:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Detonador:</Form.Label>
                   <Form.Control
                     name='detonador'
                     type='text'

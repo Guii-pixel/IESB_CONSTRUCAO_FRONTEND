@@ -7,6 +7,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import { FaArrowLeft, FaCheck } from "react-icons/fa"
 import { v4 } from 'uuid'
 import * as Yup from 'yup'
+import MaskedInput from 'react-text-mask'
 
 export default function AcessorioFormPage(props) {
 
@@ -66,7 +67,7 @@ export default function AcessorioFormPage(props) {
             <Form onSubmit={handleSubmit}>
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Silenciadores:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Silenciadores:</Form.Label>
                   <Form.Control
                     name='silenciadores'
                     type='text'
@@ -80,7 +81,7 @@ export default function AcessorioFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Coletes:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Coletes:</Form.Label>
                   <Form.Control
                     name='coletes'
                     type='text'
@@ -96,7 +97,7 @@ export default function AcessorioFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Cartuchos:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Cartuchos:</Form.Label>
                   <Form.Control
                     name='cartuchos'
                     type='text'
@@ -110,12 +111,14 @@ export default function AcessorioFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Coldres:</Form.Label>
-                  <Form.Control
+                  <Form.Label className="form-label-alma-do-cano">Coldres:</Form.Label>
+                  <MaskedInput
+                    mask={[/[A-Z]/, /[A-Z]/, /[A-Z]/]}
                     name='coldres'
                     type='text'
                     value={values.coldres}
                     onChange={handleChange}
+                    className='form-control'
                     onBlur={handleBlur}
                     isValid={touched.coldres && !errors.coldres}
                     isInvalid={touched.coldres && errors.coldres}
@@ -126,7 +129,7 @@ export default function AcessorioFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Miras:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Miras:</Form.Label>
                   <Form.Control
                     name='miras'
                     type='text'
@@ -141,7 +144,7 @@ export default function AcessorioFormPage(props) {
                 
                 
                 <Form.Group as={Col}>
-                  <Form.Label>Luvas:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Luvas:</Form.Label>
                   <Form.Control
                     name='luvas'
                     value={values.luvas}
@@ -157,7 +160,7 @@ export default function AcessorioFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Equipamentos de Proteção:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Equipamentos de Proteção:</Form.Label>
                   <Form.Control
                     name='equipamentosDeProtecao'
                     value={values.equipamentosDeProtecao}
@@ -171,7 +174,7 @@ export default function AcessorioFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Deseja sugerir outro acessório?</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Deseja sugerir outro acessório?</Form.Label>
                   <Form.Control
                    name='desejaSugerirOutroAcessorio'
                    type='string'

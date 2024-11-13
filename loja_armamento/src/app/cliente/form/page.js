@@ -7,6 +7,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import { FaArrowLeft, FaCheck } from "react-icons/fa"
 import { v4 } from 'uuid'
 import * as Yup from 'yup'
+import MaskedInput from 'react-text-mask'
 
 export default function ClienteFormPage(props) {
 
@@ -16,6 +17,8 @@ export default function ClienteFormPage(props) {
 
   const id = props.searchParams.id
   const clienteEditado = cliente.find(item => item.id == id)
+
+ 
 
   // função para salvar os dados do form
   function salvar(dados) {
@@ -73,7 +76,7 @@ export default function ClienteFormPage(props) {
             <Form onSubmit={handleSubmit}>
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Nome Completo:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Nome Completo:</Form.Label>
                   <Form.Control
                     name='nomeCompleto'
                     type='text'
@@ -87,12 +90,14 @@ export default function ClienteFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>CPF:</Form.Label>
-                  <Form.Control
+                  <Form.Label className="form-label-alma-do-cano">CPF:</Form.Label>
+                  <MaskedInput
+                    mask={[/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]}
                     name='cpf'
                     type='text'
                     value={values.cpf}
                     onChange={handleChange}
+                    className='form-control'
                     onBlur={handleBlur}
                     isValid={touched.cpf && !errors.cpf}
                     isInvalid={touched.cpf && errors.cpf}
@@ -103,7 +108,7 @@ export default function ClienteFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Endereço:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Endereço:</Form.Label>
                   <Form.Control
                     name='endereco'
                     type='text'
@@ -117,7 +122,7 @@ export default function ClienteFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Telefone:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Telefone:</Form.Label>
                   <Form.Control
                     name='telefone'
                     type='text'
@@ -133,7 +138,7 @@ export default function ClienteFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Email:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Email:</Form.Label>
                   <Form.Control
                     name='email'
                     type='email'
@@ -147,7 +152,7 @@ export default function ClienteFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Data de Nascimento:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Data de Nascimento:</Form.Label>
                   <Form.Control
                     name='dataNascimento'
                     type='date'
@@ -163,7 +168,7 @@ export default function ClienteFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Status:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Status:</Form.Label>
                   <Form.Select
                     name='status'
                     value={values.status}
@@ -180,7 +185,7 @@ export default function ClienteFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Observações:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Observações:</Form.Label>
                   <Form.Control
                     name='observacoes'
                     type='text'

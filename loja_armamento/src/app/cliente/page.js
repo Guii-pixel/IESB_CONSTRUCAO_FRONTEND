@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { FaPen, FaPlusCircle, FaTrash } from 'react-icons/fa'
 
+//import WhatsAppQRCode from '../qrcode/page';
+
 export default function ClientePage() {
 
   const [cliente, setClientes] = useState([])
@@ -13,7 +15,7 @@ export default function ClientePage() {
   // Faz alguma coisa quando o usuário acessa a tela
   useEffect(() => {
     // Busca a lista do localStorage, se não existir, inicia uma vazia
-    const clienteLocalStorage = JSON.parse(localStorage.getItem("clientes")) || []
+    const clienteLocalStorage = JSON.parse(localStorage.getItem("cliente")) || []
     // guarda a lista no estado
     setClientes(clienteLocalStorage)
     console.log(clienteLocalStorage)
@@ -26,7 +28,7 @@ export default function ClientePage() {
       // filtra a lista antiga removando o professor recebido
       const novaLista = cliente.filter(item => item.id !== clienteParaExcluir.id)
       // grava no localStorage a nova lista
-      localStorage.setItem('clientes', JSON.stringify(novaLista));
+      localStorage.setItem('cliente', JSON.stringify(novaLista));
       // grava a nova lista no estado para renderizar na tela
       setClientes(novaLista)
       alert("Cliente excluído com sucesso!")

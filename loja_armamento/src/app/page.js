@@ -3,8 +3,8 @@
 import Pagina from '../components/Pagina'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 
-export default function HomePage() {
 
+export default function HomePage() {
 
   const armamento = JSON.parse(localStorage.getItem("armamento")) || []
   const munição = JSON.parse(localStorage.getItem("munição")) || []
@@ -35,19 +35,17 @@ export default function HomePage() {
     },
     {
       nome: "Fornecedor",
-      imagem: "https://i.pinimg.com/236x/ce/96/4d/ce964d843b92374b8b96e105ffa82831.jpg", quantidade: fornecedor.length,
+      imagem: "https://i.pinimg.com/564x/d2/74/4e/d2744e34b58a20d18fb11dcdf273d808.jpg", quantidade: fornecedor.length,
       link: "/fornecedor"
     },
   ]
-
-
 
   return (
     <Pagina titulo={"Loja Armamento"}>
       <Row md={5}>
         {lista.map(item => (
-          <Col className='py-2'>
-            <Card style={{height: '100%'}}>
+          <Col className='py-2' key={item.nome}>
+            <Card style={{ height: '100%' }}>
               <Card.Img src={item.imagem} style={{ height: '100%' }} />
               <Card.Body>
                 <Card.Title>{item.nome}</Card.Title>
@@ -59,7 +57,6 @@ export default function HomePage() {
             </Card>
           </Col>
         ))}
-
       </Row>
     </Pagina>
   )

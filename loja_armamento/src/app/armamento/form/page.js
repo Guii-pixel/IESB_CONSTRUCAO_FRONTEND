@@ -3,10 +3,12 @@
 import Pagina from '@/components/Pagina'
 import { Formik } from 'formik'
 import { useRouter } from 'next/navigation'
-import { Button, Col, Form, Row } from 'react-bootstrap'
+import { Button, Col, Form, FormLabel, Row } from 'react-bootstrap'
 import { FaArrowLeft, FaCheck } from "react-icons/fa"
 import { v4 } from 'uuid'
 import * as Yup from 'yup'
+import MaskedInput from 'react-text-mask'
+
 
 export default function ArmamentoFormPage(props) {
 
@@ -66,7 +68,7 @@ export default function ArmamentoFormPage(props) {
             <Form onSubmit={handleSubmit}>
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Nome:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Nome:</Form.Label>
                   <Form.Control
                     name='nome'
                     type='text'
@@ -80,7 +82,7 @@ export default function ArmamentoFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Cor:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Cor:</Form.Label>
                   <Form.Control
                     name='cor'
                     type='text'
@@ -96,7 +98,7 @@ export default function ArmamentoFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Classificação quanto ao porte:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Classificação quanto ao porte:</Form.Label>
                   <Form.Control
                     name='classificacaoQuantoAoPorte'
                     type='text'
@@ -110,7 +112,7 @@ export default function ArmamentoFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Classificação quanto à legalidade:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Classificação quanto à legalidade:</Form.Label>
                   <Form.Control
                     name='classificacaoQuantoALegalidade'
                     type='text'
@@ -126,7 +128,7 @@ export default function ArmamentoFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Alma do cano:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Alma do cano:</Form.Label>
                   <Form.Control
                     name='almaDoCano'
                     type='text'
@@ -141,7 +143,7 @@ export default function ArmamentoFormPage(props) {
                 
                 
                 <Form.Group as={Col}>
-                  <Form.Label>Mira:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Mira:</Form.Label>
                   <Form.Select
                     name='mira'
                     value={values.mira}
@@ -160,7 +162,7 @@ export default function ArmamentoFormPage(props) {
 
               <Row className='mb-2'>
                 <Form.Group as={Col}>
-                  <Form.Label>Gatilho:</Form.Label>
+                  <Form.Label className="form-label-alma-do-cano">Gatilho:</Form.Label>
                   <Form.Select
                     name='gatilho'
                     value={values.gatilho}
@@ -177,23 +179,24 @@ export default function ArmamentoFormPage(props) {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Form.Label>Carregador:</Form.Label>
-                  <Form.Control
+                  <Form.Label className="form-label-alma-do-cano">Carregador:</Form.Label>
+                  <MaskedInput         
+                   mask={[/\d/, /\d/, '-', /[M]/, /[U]/, /[N]/, /[I]/, /[Ç]/, /[O]/, /[E]/, /[S]/ ]}
                    name='carregador'
                    type='string'
                    value={values.carregador}
                    onChange={handleChange}
+                   className='form-control'
                    onBlur={handleBlur}
                    isValid={touched.carregador && !errors.carregador}
                    isInvalid={touched.carregador && errors.carregador}
-                 >
-          
-                 </Form.Control>
+                 />
                   <Form.Control.Feedback type='invalid'>{errors.carregador}</Form.Control.Feedback>
                 </Form.Group>
               </Row>
 
-              <Form.Group className='text-end'>
+              <Form.Group className='text-end' as={Col}> 
+                <FormLabel>Ações</FormLabel>   
                 <Button className='me-2' href='/armamento'><FaArrowLeft /> Voltar</Button>
                 <Button type='submit' variant='success'><FaCheck /> Enviar</Button>
               </Form.Group>
